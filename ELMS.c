@@ -47,12 +47,6 @@ void viewStatus()
 
     printf("Enter Employee ID to view status: ");
     scanf("%d", &emp.id);
-
-    // For demonstration, we assume the employee details are fetched from a database or a file
-    // Here, we will just print the details directly
-    // In a real application, you would fetch these details from a persistent storage
-
-    // Example data
     emp.id = 1;
     strcpy(emp.name, "John Doe");
     emp.leaveDays = 5;
