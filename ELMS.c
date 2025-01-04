@@ -14,7 +14,6 @@ void leaveApproval();
 void addEmployee();
 
 // User-defined Functions
-
 //Function to apply for leave
 void applyLeave()
 {
@@ -46,9 +45,9 @@ int main()
     int choice;
     printf("Enter Your User Name:");
     scanf("%s", &username);
-    printf("Enter Your User Name:");
+    printf("Enter Your Password:");
     scanf("%s", &password);
-    if (username == "user" && password == "123")
+    if (strcmp("employee",username) && strcmp("123",password))
     {
         while (1)
         {
@@ -71,7 +70,7 @@ int main()
             }
         }
     }
-    else if (username == "admin" && password == "12345")
+    else if (strcmp("manager",username) && strcmp("12345",password))
     {
         while (1)
         {
