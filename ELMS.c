@@ -1,21 +1,104 @@
-//Employee Leave Management System Project
+// Employee Leave Management System Project
 
-//Header Files
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+// Header Files
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-//Preprocessor Directives
+// Preprocessor Directives
 
+// Function Prototypes
+void applyLeave();
+void viewStatus();
+void leaveApproval();
+void addEmployee();
 
-//Function Prototypes
+// User-defined Functions
 
+//Function to apply for leave
+void applyLeave()
+{
 
-//User-defined Functions
+}
 
+//Function to view employee details and leave status
+void viewStatus()
+{
 
-//Main function
+}
+
+//Function to apply or reject leave application
+void leaveApproval()
+{
+
+}
+
+//Function to add a new Employee
+void addEmployee()
+{
+
+}
+
+// Main function
 int main()
 {
-    
+    char password[20], username[20];
+    int choice;
+    printf("Enter Your User Name:");
+    scanf("%s", &username);
+    printf("Enter Your User Name:");
+    scanf("%s", &password);
+    if (username == "user" && password == "123")
+    {
+        while (1)
+        {
+            printf("1.Apply for Leave.\n2.View Leave Status.\n3.Exit.\n");
+            printf("Enter your choice:");
+            scanf("%d", &choice);
+            switch (choice)
+            {
+            case 1:
+                applyLeave();
+                break;
+            case 2:
+                viewStatus();
+                break;
+            case 3:
+                exit(0);
+                break;
+            default:
+                printf("Invalid choice!!!");
+            }
+        }
+    }
+    else if (username == "admin" && password == "12345")
+    {
+        while (1)
+        {
+            printf("1.Accept or Reject Leave Application.\n2.View Leave Status.\n3.Add New Employees.4.Exit.\n");
+            printf("Enter your choice:");
+            scanf("%d", &choice);
+            switch (choice)
+            {
+            case 1:
+                leaveApproval();
+                break;
+            case 2:
+                viewStatus();
+                break;
+            case 3:
+                addEmployee();
+                break;
+            case 4:
+                exit(0);
+                break;
+            default:
+                printf("Invalid choice!!!");
+            }
+        }
+    }
+    else
+    {
+        printf("Invalid Username or Password.Unable to Login!!!");
+    }
 }
