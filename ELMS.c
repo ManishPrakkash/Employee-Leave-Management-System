@@ -14,10 +14,30 @@ void leaveApproval();
 void addEmployee();
 
 // User-defined Functions
+struct Employee {
+    int id;
+    char name[50];
+    int leaveDays;
+};
+
 //Function to apply for leave
 void applyLeave()
 {
+    struct Employee emp;
+    int leaveDays;
 
+    printf("Enter Employee ID: ");
+    scanf("%d", &emp.id);
+
+    printf("Enter Employee Name: ");
+    scanf("%s", emp.name);
+
+    printf("Enter number of leave days: ");
+    scanf("%d", &leaveDays);
+
+    emp.leaveDays = leaveDays;
+
+    printf("Leave applied successfully for %s (%d) for %d days.\n", emp.name, emp.id, emp.leaveDays);
 }
 
 //Function to view employee details and leave status
