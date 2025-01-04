@@ -216,12 +216,12 @@ int main()
                 exit(0);
                 break;
             default:
-                printf("Invalid choice!!!");
+                printf("Invalid choice!!!\n");
             }
         }
         else
         {
-            printf("Invalid Username or Password.Unable to Login!!!");
+            printf("Invalid Username or Password.Unable to Login!!!\n");
         }
     }
     return 0;
