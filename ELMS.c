@@ -14,7 +14,6 @@ void applyLeave();
 void viewStatus();
 void leaveApproval();
 void addEmployee();
-void writeLeaveApplication();
 
 // Structure to hold employee details
 struct Employee
@@ -22,6 +21,7 @@ struct Employee
     int id;
     char name[50];
     int leaveDays;
+    char reason[50];
 };
 
 // User-defined Functions
@@ -29,21 +29,33 @@ struct Employee
 void applyLeave()
 {
     struct Employee emp;
-    int leaveDays;
+    FILE *file;
+    file = fopen("leaveapplication.txt", "a");
+    if (file == NULL)
+    {
+        printf("File not found");
+        exit(1);
+    }
+    else
+    {
+        printf("Enter Employee ID: ");
+        scanf("%d", &emp.id);
+        printf("Enter Employee Name: ");
+        scanf("%s", emp.name);
+        printf("Enter the no of days:");
+        scanf("%d",&emp.leaveDays);
+        printf("Enter the reason:");
+        scanf("%s",&emp.reason);
 
-    printf("Enter Employee ID: ");
-    scanf("%d", &emp.id);
-
-    printf("Enter Employee Name: ");
-    scanf("%s", emp.name);
-
-    printf("Enter number of leave days: ");
-    scanf("%d", &leaveDays);
-
-    emp.leaveDays = leaveDays;
-
-    printf("Leave applied successfully for %s (%d) for %d days.\n", emp.name, emp.id, emp.leaveDays);
-    writeLeaveApplication();
+        fprintf(file, "Employee ID:%d\n", emp.id);
+        fprintf(file, "Employee Name: %s\n", emp.name);
+        fprintf(file, "No of days Leave Required: %d\n", emp.leaveDays);
+        fprintf(file, "Balance Leave Available: %d\n", MAX_LEAVE - emp.leaveDays);
+        fprintf(file, "Reason:%s\n",emp.reason);
+        fclose(file);
+        printf("Leave application sent successfully.\n");
+        printf("---------------------------------------\n");
+    }
 }
 
 // Function to view employee details and leave status
@@ -59,12 +71,13 @@ void viewStatus()
     }
     else
     {
-        while (fscanf(file, "Employee ID:%d\nEmployee Name: %s\nLeave Days: %d\nBalance Leave Available: %d\n", &emp.id, emp.name, &emp.leaveDays, &emp.leaveDays) != EOF)
+        while (fscanf(file, "Employee ID:%d\nEmployee Name: %s\nLeave Days: %d\n", &emp.id, &emp.name, &emp.leaveDays ) != EOF)
         {
             printf("Employee ID: %d\n", emp.id);
             printf("Employee Name: %s\n", emp.name);
             printf("Leave Days: %d\n", emp.leaveDays);
-            printf("Balance Leave Available: %d\n", MAX_LEAVE - emp.leaveDays);
+            printf("Balance Leave Available: %d\n",20- emp.leaveDays);
+            printf("---------------------------------------\n");
             fclose(file);
             break;
         }
@@ -84,11 +97,11 @@ void leaveApproval()
     }
     else
     {
-        while (fscanf(file, "Employee ID:%d\nEmployee Name:%s\nLeave Days:%d\n", &emp.id, emp.name, &emp.leaveDays) != EOF)
+        while (fscanf(file, "Employee ID:%d\nEmployee Name: %s\nNo of days Leave Required: %d\nReason:%s\n", &emp.id, emp.name, &emp.leaveDays, emp.reason) != EOF)
         {
             printf("Employee ID: %d\n", emp.id);
             printf("Employee Name: %s\n", emp.name);
-            printf("Employee Leave Days: %d\n", emp.leaveDays);
+            printf("No of days Leave Required: %d\n", emp.leaveDays);
             printf("Balance Leave Available: %d\n", MAX_LEAVE - emp.leaveDays);
             printf("1. Accept Leave\n2. Reject Leave\n");
             int choice;
@@ -105,7 +118,9 @@ void leaveApproval()
             default:
                 printf("Invalid choice.\n");
             }
+            break;
         }
+        printf("---------------------------------------\n");
         fclose(file);
     }
 }
@@ -135,27 +150,7 @@ void addEmployee()
         fprintf(file, "Balance Leave Available: %d\n", MAX_LEAVE - emp.leaveDays);
         fclose(file);
         printf("Employee added successfully.\n");
-    }
-}
-
-// Function to write leave application
-void writeLeaveApplication()
-{
-    struct Employee emp;
-    FILE *file;
-    file = fopen("leaveapplication.txt", "a");
-    if (file == NULL)
-    {
-        printf("File not found");
-        exit(1);
-    }
-    else
-    {
-        fprintf(file, "Employee ID:%d\n", emp.id);
-        fprintf(file, "Employee Name: %s\n", emp.name);
-        fprintf(file, "Leave Days: %d\n", emp.leaveDays);
-        fclose(file);
-        printf("Leave application written to file successfully.\n");
+        printf("---------------------------------------\n");
     }
 }
 
@@ -173,6 +168,7 @@ int main()
         scanf("%s", &username);
         printf("Enter Your Password:");
         scanf("%s", &password);
+        printf("---------------------------------------\n");
         if (strcmp("e", username) == 0 && strcmp("1", password) == 0)
         {
 
