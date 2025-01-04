@@ -169,7 +169,7 @@ int main()
         printf("Enter Your Password:");
         scanf("%s", &password);
         printf("---------------------------------------\n");
-        if (strcmp("e", username) == 0 && strcmp("1", password) == 0)
+        if (strcmp("employee", username) == 0 && strcmp("123", password) == 0)
         {
 
             printf("1.Apply for Leave.\n2.View Leave Status.\n3.Exit.\n");
@@ -191,7 +191,7 @@ int main()
             }
         }
         // Functionalities for the manager
-        else if (strcmp("m", username) == 0 && strcmp("1", password) == 0)
+        else if (strcmp("manager", username) == 0 && strcmp("12345", password) == 0)
         {
 
             printf("1.Accept or Reject Leave Application.\n2.View Leave Status.\n3.Add New Employees.\n4.Exit.\n");
