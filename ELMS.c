@@ -41,13 +41,16 @@ void addEmployee()
 // Main function
 int main()
 {
+    //character arrays to store user name and password
     char password[20], username[20];
+    //variable to store the user's choice
     int choice;
     printf("Enter Your User Name:");
     scanf("%s", &username);
     printf("Enter Your Password:");
     scanf("%s", &password);
-    if (strcmp("employee",username) && strcmp("123",password))
+    //Functionalities for Employees
+    if (strcmp("employee",username)==0 && strcmp("123",password)==0)
     {
         while (1)
         {
@@ -70,7 +73,8 @@ int main()
             }
         }
     }
-    else if (strcmp("manager",username) && strcmp("12345",password))
+    //Functionalities for the manager 
+    else if (strcmp("manager",username)==0 && strcmp("12345",password)==0)
     {
         while (1)
         {
@@ -100,4 +104,5 @@ int main()
     {
         printf("Invalid Username or Password.Unable to Login!!!");
     }
+    return 0;
 }
