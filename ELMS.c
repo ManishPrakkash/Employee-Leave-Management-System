@@ -162,6 +162,7 @@ int main()
     // variable to store the user's choice
     int choice;
     // Functionalities for Employees
+    printf("WELCOME TO EMPLOYEE LEAVE MANAGEMENT SYSTEM!!!");
     while (1)
     {
         printf("Enter Your User Name:");
