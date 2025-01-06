@@ -185,6 +185,7 @@ int main()
                 viewStatus();
                 break;
             case 3:
+                printf("\nThanks for using Employee leave management system!");
                 exit(0);
                 break;
             default:
@@ -210,6 +211,7 @@ int main()
                 addEmployee();
                 break;
             case 4:
+                 printf("\nThanks for using Employee leave management system!");
                 exit(0);
                 break;
             default:
