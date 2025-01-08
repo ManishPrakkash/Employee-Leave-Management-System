@@ -6,7 +6,6 @@
 #include <string.h>
 
 // Preprocessor Directives
-#define MAX_EMPLOYEE 50
 #define MAX_LEAVE 20
 
 // Function Prototypes
