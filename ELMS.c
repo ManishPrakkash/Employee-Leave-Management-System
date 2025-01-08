@@ -15,11 +15,10 @@ struct Employee
     char name[50];
     int leaveDays;
     char reason[50];
-};
+}emp;
 
 void applyLeave()
 {
-    struct Employee emp;
     FILE *file;
     file = fopen("leaveapplication.txt", "a");
     if (file == NULL)
@@ -51,7 +50,6 @@ void applyLeave()
 
 void viewStatus()
 {
-    struct Employee emp;
     FILE *file;
     file = fopen("employee.txt", "r");
     if (file == NULL)
@@ -77,7 +75,6 @@ void viewStatus()
 
 void leaveApproval()
 {
-    struct Employee emp;
     FILE *file;
     file = fopen("leaveapplication.txt", "r");
     if (file == NULL)
@@ -117,7 +114,6 @@ void leaveApproval()
 
 void addEmployee()
 {
-    struct Employee emp;
     FILE *file;
     file = fopen("employee.txt", "a");
     if (file == NULL)
