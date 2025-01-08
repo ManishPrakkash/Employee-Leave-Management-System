@@ -1,20 +1,14 @@
 // Employee Leave Management System Project
-
-// Header Files
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-// Preprocessor Directives
 #define MAX_LEAVE 20
 
-// Function Prototypes
 void applyLeave();
 void viewStatus();
 void leaveApproval();
 void addEmployee();
 
-// Structure to hold employee details
 struct Employee
 {
     int id;
@@ -23,8 +17,6 @@ struct Employee
     char reason[50];
 };
 
-// User-defined Functions
-// Function to apply for leave
 void applyLeave()
 {
     struct Employee emp;
@@ -42,22 +34,21 @@ void applyLeave()
         printf("Enter Employee Name: ");
         scanf("%s", emp.name);
         printf("Enter the no of days:");
-        scanf("%d",&emp.leaveDays);
+        scanf("%d", &emp.leaveDays);
         printf("Enter the reason:");
-        scanf("%s",&emp.reason);
+        scanf("%s", &emp.reason);
 
         fprintf(file, "Employee ID:%d\n", emp.id);
         fprintf(file, "Employee Name: %s\n", emp.name);
         fprintf(file, "No of days Leave Required: %d\n", emp.leaveDays);
         fprintf(file, "Balance Leave Available: %d\n", MAX_LEAVE - emp.leaveDays);
-        fprintf(file, "Reason:%s\n",emp.reason);
+        fprintf(file, "Reason:%s\n", emp.reason);
         fclose(file);
         printf("Leave application sent successfully.\n");
         printf("---------------------------------------\n");
     }
 }
 
-// Function to view employee details and leave status
 void viewStatus()
 {
     struct Employee emp;
@@ -70,12 +61,13 @@ void viewStatus()
     }
     else
     {
-        while (fscanf(file, "Employee ID:%d\nEmployee Name: %s\nLeave Days: %d\n", &emp.id, &emp.name, &emp.leaveDays ) != EOF)
+        while (fscanf(file, "Employee ID:%d\nEmployee Name: %s\nLeave Days: %d\n", &emp.id, &emp.name, &emp.leaveDays) != EOF)
         {
+            printf("---------------------------------------\n");
             printf("Employee ID: %d\n", emp.id);
             printf("Employee Name: %s\n", emp.name);
             printf("Leave Days: %d\n", emp.leaveDays);
-            printf("Balance Leave Available: %d\n",20- emp.leaveDays);
+            printf("Balance Leave Available: %d\n", 20 - emp.leaveDays);
             printf("---------------------------------------\n");
             fclose(file);
             break;
@@ -83,7 +75,6 @@ void viewStatus()
     }
 }
 
-// Function to apply or reject leave application
 void leaveApproval()
 {
     struct Employee emp;
@@ -124,7 +115,6 @@ void leaveApproval()
     }
 }
 
-// Function to add a new Employee
 void addEmployee()
 {
     struct Employee emp;
@@ -141,7 +131,7 @@ void addEmployee()
         scanf("%d", &emp.id);
         printf("Enter Employee Name: ");
         scanf("%s", emp.name);
-        emp.leaveDays = 0; // Initialize leave days to 0
+        emp.leaveDays = 0; 
 
         fprintf(file, "Employee ID:%d\n", emp.id);
         fprintf(file, "Employee Name: %s\n", emp.name);
@@ -153,14 +143,11 @@ void addEmployee()
     }
 }
 
-// Main function
 int main()
 {
-    // character arrays to store user name and password
+
     char password[20], username[20];
-    // variable to store the user's choice
     int choice;
-    // Functionalities for Employees
     printf("WELCOME TO EMPLOYEE LEAVE MANAGEMENT SYSTEM!!!\n");
     while (1)
     {
@@ -210,7 +197,7 @@ int main()
                 addEmployee();
                 break;
             case 4:
-                 printf("\nThanks for using Employee leave management system!");
+                printf("\nThanks for using Employee leave management system!");
                 exit(0);
                 break;
             default:
