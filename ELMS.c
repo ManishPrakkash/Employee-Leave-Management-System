@@ -178,7 +178,6 @@ int main()
                 printf("Invalid choice!!!");
             }
         }
-        // Functionalities for the manager
         else if (strcmp("manager", username) == 0 && strcmp("12345", password) == 0)
         {
 
